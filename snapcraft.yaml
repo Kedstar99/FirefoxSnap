@@ -9,12 +9,10 @@ base: core18
 apps:
   firefox:
     command: firefox
-    desktop: firefox.desktop
     extensions: [ gnome-3-28 ]
     environment:
       DISABLE_WAYLAND: 1
       HOME: "$SNAP_USER_COMMON"
-    common-id: org.mozilla.firefox
     slots:
       - dbus-daemon
     plugs:
