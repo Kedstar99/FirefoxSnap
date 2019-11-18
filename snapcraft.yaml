@@ -9,11 +9,12 @@ base: core18
 apps:
   firefox:
     command: firefox
+    desktop: firefox.desktop
     extensions: [ gnome-3-28 ]
     environment:
       DISABLE_WAYLAND: 1
       HOME: "$SNAP_USER_COMMON"
-    common-id: com.mozilla.firefox
+    common-id: org.mozilla.firefox
     slots:
       - dbus-daemon
     plugs:
@@ -57,32 +58,6 @@ parts:
       - libc-bin
       - locales-all
       - libcurl3-gnutls
-      - libatk-bridge2.0-0
-      - libatk1.0-0
-      - libatspi2.0-0
-      - libblkid1
-      - libbz2-1.0
-      - libc6
-      - libcairo-gobject2
-      - libdb5.3
-      - libepoxy0
-      - libgcc1
-      - libgcrypt20
-      - libgpg-error0
-      - libgtk-3-0
-      - liblz4-1
-      - liblzma5
-      - libmount1
-      - libncursesw5
-      - libpcre3
-      - libselinux1
-      - libstdc++6
-      - libsystemd0
-      - libtinfo5
-      - libudev1
-      - libuuid1
-      - libxcomposite1
-      - zlib1g
 
   xdg-open:
     after: [firefox]
@@ -103,16 +78,6 @@ parts:
     plugin: nil
     stage-packages:
       - shared-mime-info
-      - libblkid1
-      - libc6
-      - libgcc1
-      - liblzma5
-      - libmount1
-      - libpcre3
-      - libselinux1
-      - libstdc++6
-      - libuuid1
-      - zlib1g
     override-build: |
       snapcraftctl build
       set -eux
@@ -123,4 +88,4 @@ slots:
   dbus-daemon:
     interface: dbus
     bus: session
-    name: com.mozilla.firefox
+    name: org.mozilla.firefox
