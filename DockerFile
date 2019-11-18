@@ -42,8 +42,6 @@ RUN apt-get update && apt-get install -qy python3 bzip2 curl git && apt-get clea
 WORKDIR /firefox
 COPY . /firefox
 
-RUN apt-get update && apt-get upgrade -y && snapcraft && \
-    mv /firefox/*.snap /firefox/firefox.snap
-
+RUN apt-get update && apt-get upgrade -y && snapcraft && mv firefox_*.snap firefox.snap
 ENTRYPOINT ["sh", "./entry_point.sh"]
 
